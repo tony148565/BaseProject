@@ -6,6 +6,7 @@ while 1:
     xlist = []
     num = input('輸入想製作的圖表1.長條圖2.折線圖3.結束:')
     if num == '1':
+        plt.plot(label = '成果分析')
         plt.title('bar chart')
         plt.ylabel('score')
         plt.xlabel('subject')
@@ -36,7 +37,9 @@ while 1:
             if tmp == '0':
                 break
             xlist.append(tmp)
+            i=0
         while len(ylist) < len(xlist):
+            print(xlist[i])
             tmp = int(input('score:'))
             if tmp < 0:
                 print('請輸入大於0的數字')
@@ -44,6 +47,7 @@ while 1:
                 print('請輸入小於100的數字')
             else:
                 ylist.append(tmp)
+            i=i+1
         plt.ylim(0, 100)
         plt.plot(xlist, ylist, 'o-')
         plt.legend()
